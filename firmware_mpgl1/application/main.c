@@ -93,14 +93,14 @@ void main(void)
     Adc12RunActiveState();
     MessagingRunActiveState();
     DebugRunActiveState();
-    LcdRunActiveState();
+   LcdRunActiveState();
     AntRunActiveState();
     SdCardRunActiveState();
 
     /* Applications */
     UserApp1RunActiveState();
-    UserApp2RunActiveState();
-    UserApp3RunActiveState();
+    //UserApp2RunActiveState();
+    //UserApp3RunActiveState();
     
     /* System sleep*/
     HEARTBEAT_OFF();

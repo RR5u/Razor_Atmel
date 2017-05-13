@@ -88,6 +88,12 @@ Promises:
 void UserApp1Initialize(void)
 {
  
+  /*static u16  u16_Counter=0;
+  for(u16_Counter=0;u16_Counter<=7;u16_Counter++)
+	{
+		LedOff(u16_Counter);
+	}
+*/
   /* If good initialization, set state to Idle */
   if( 1 )
   {
@@ -135,8 +141,23 @@ State Machine Function Definitions
 /*-------------------------------------------------------------------------------------------------------------------*/
 /* Wait for ??? */
 static void UserApp1SM_Idle(void)
-{
-
+{	
+     
+        LedRateType Led_PWM=LED_PWM_0;
+        static u16 Led_Name=0;      
+        if(G_u32SystemTime1ms%400==0)
+      {   
+         for(Led_Name=0;Led_Name<=7;Led_Name++)
+	{
+        LedPWM(Led_Name,Led_PWM);	
+	}
+        Led_PWM++;
+      }
+      if(Led_PWM==LED_PWM_95)
+      {
+      Led_PWM=LED_PWM_0;
+      }
+    
 } /* end UserApp1SM_Idle() */
     
 #if 0
